@@ -5,12 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HomeWork1App"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        x:Name="MainScreenWindow"
+        Title="Main Window "
+        Height="450"
+        Width="800">
     <Grid>
         <Button>
             <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/ic_thumb_up_black_24dp_2x.png" />
-                <TextBlock Text="Thumbs Up" />
+                <Image Source="/Images/ic_thumb_up_black_24dp_2x.png"
+                       Width="100"/>
+                <TextBlock Text="Thumbs Up"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="10,10,10,10"/>
+                <Button Content="Toggle Window Size MAX/NORMAL"
+                        Name="MAX_Window_Button"
+                        Click="MAX_Window_Button_Click" />
             </StackPanel>
         </Button>
     </Grid>

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HomeWork1App
+namespace BullsEye
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,18 +23,6 @@ namespace HomeWork1App
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void MAX_Window_Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainScreenWindow.WindowState == WindowState.Maximized)
-            {
-                MainScreenWindow.WindowState = WindowState.Normal;
-            }
-            else
-            {
-                MainScreenWindow.WindowState = WindowState.Maximized;
-            }
         }
     }
 }

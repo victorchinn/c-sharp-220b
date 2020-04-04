@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HomeWork1App
+namespace HomeWorkAssignment01
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,16 +25,21 @@ namespace HomeWork1App
             InitializeComponent();
         }
 
-        private void MAX_Window_Button_Click(object sender, RoutedEventArgs e)
+        private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (MainScreenWindow.WindowState == WindowState.Maximized)
+            MessageBox.Show("Submitting password:" + uxPassword.Text);
+        }
+
+        private void uxName_OR_uxPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if ((uxName.Text == "") && (uxPassword.Text == ""))
             {
-                MainScreenWindow.WindowState = WindowState.Normal;
+                uxSubmit.IsEnabled = false;
             }
             else
             {
-                MainScreenWindow.WindowState = WindowState.Maximized;
-            }
+                uxSubmit.IsEnabled = true;
+            };
         }
     }
 }
