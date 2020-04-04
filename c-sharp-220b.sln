@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThumbsUp", "HomeWork1App\Th
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BullsEye", "BullsEye\BullsEye.csproj", "{F2CDEA47-ABBC-455F-B8D4-4E7998CAED0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWorkAssignment01", "HomeWorkAssignment01\HomeWorkAssignment01.csproj", "{48B9F1A0-230C-43B2-91CF-5674C40DCD17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWorkAssignment01", "HomeWorkAssignment01\HomeWorkAssignment01.csproj", "{48B9F1A0-230C-43B2-91CF-5674C40DCD17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
