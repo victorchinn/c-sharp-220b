@@ -32,7 +32,10 @@ namespace HomeWorkAssignment01
 
         private void uxName_OR_uxPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if ((uxName.Text == "") && (uxPassword.Text == ""))
+            // HANDLE CHECK TO ENABLE/DISABLE THE SUBMIT BUTTON
+            // changing either text uxName or uxPassword will call this method
+
+            if ((uxName.Text == "") || (uxPassword.Text == ""))
             {
                 uxSubmit.IsEnabled = false;
             }
