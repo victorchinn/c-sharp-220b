@@ -6,21 +6,26 @@
         xmlns:local="clr-namespace:HomeWorkAssignment01"
         mc:Ignorable="d"
         Title="MainWindow"
+        Background="#22FFFFFF"
         Height="350"
         Width="525">
 
     <StackPanel>
 
-        <TextBlock Text="Enter Name:" />
+        <TextBlock Text="Enter Name:"
+                   Foreground="White" />
         <TextBox x:Name="uxName"
+                 Background="SlateGray"
                  TextChanged="uxName_OR_uxPassword_TextChanged" />
-        <TextBlock Text="Enter Password:" />
+        <TextBlock Text="Enter Password:"
+                   Foreground="White" />
         <TextBox x:Name="uxPassword"
+                 Background="SlateGray"
                  TextChanged="uxName_OR_uxPassword_TextChanged" />
         <Button x:Name="uxSubmit"
                 Click="uxSubmit_Click"
-                Content="Submit" 
-                IsEnabled="False"/>
+                Content="Submit"
+                IsEnabled="False" />
 
     </StackPanel>
 </Window>
