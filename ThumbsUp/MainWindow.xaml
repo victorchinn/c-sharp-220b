@@ -9,19 +9,44 @@
         Title="Main Window "
         Height="450"
         Width="800">
+    
     <Grid>
-        <Button>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="Images/ic_thumb_up_black_24dp_2x.png"
-                       Width="100" />
-                <TextBlock Text="Thumbs Up"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin="10,10,10,10" />
-                <Button Content="Toggle Window Size MAX/NORMAL"
-                        Name="MAX_Window_Button"
-                        Click="MAX_Window_Button_Click" />
-            </StackPanel>
-        </Button>
+        <StackPanel Orientation="Vertical">
+
+            <TextBlock>Enter Name:</TextBlock>
+
+            <TextBox x:Name="uxName"
+                     Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+            </TextBox>
+
+            <Label x:Name="uxNameError"
+                   Content="{Binding NameError, UpdateSourceTrigger=PropertyChanged}"></Label>
+
+            <TextBlock>Enter Password:</TextBlock>
+
+            <TextBox x:Name="uxPassword"
+                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+            </TextBox>
+
+            <Label x:Name="uxPasswordError"
+                   Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"></Label>
+
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images/ic_thumb_up_black_24dp_2x.png"
+                           Width="100" />
+                    <TextBlock Text="Thumbs Up"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="10,10,10,10" />
+                    <Button Content="Toggle Window Size MAX/NORMAL"
+                            Name="MAX_Window_Button"
+                            Click="MAX_Window_Button_Click" />
+                    <Button Width="200">
+                        <CheckBox Content="Check this out!" />
+                    </Button>
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>

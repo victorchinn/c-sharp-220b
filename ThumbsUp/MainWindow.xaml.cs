@@ -20,9 +20,17 @@ namespace ThumbsUp
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private Models.User user = new Models.User();
+
         public MainWindow()
         {
             InitializeComponent();
+            MainScreenWindow.DataContext = user;
+//            uxName.DataContext = user;
+//            uxNameError.DataContext = user;
+//            uxPassword.DataContext = user;
+//            uxPasswordError.DataContext = user;
         }
 
         private void MAX_Window_Button_Click(object sender, RoutedEventArgs e)
