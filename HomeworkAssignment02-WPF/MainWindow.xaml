@@ -5,8 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HomeworkAssignment02_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        x:Name="MainWindowView"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="0"
+                    Grid.Column="0">
+            <Button x:Name="LoadList"
+                    Content="Load List"
+                    Click="LoadList_Click" />
+            <Button x:Name="First_Action"
+                    Content="Show Hellow PW"
+                    Click="First_Action_Click"/>
+            <Button x:Name="Second_Action"
+                    Content="Delete password=first name(lc)" 
+                    Click="Second_Action_Click"/>
+            <Button x:Name="Third_Action"
+                    Content="Delete 1st User pw=hello" 
+                    Click="Third_Action_Click"/>
+            <Button x:Name="Fourth_Action"
+                    Content="Delete password=first name(lc)" 
+                    Click="Fourth_Action_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="0"
+                    Grid.Column="1">
+            <ListView x:Name="MainWindowListView"
+                      ItemsSource="{Binding DataCollection}"
+                      Height="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="Name: " />
+                            <TextBlock Text="{Binding Name}"
+                                       FontWeight="Bold" />
+                            <TextBlock Text=", " />
+                            <TextBlock Text="Password: " />
+                            <TextBlock Text="{Binding Password}"
+                                       FontWeight="Bold" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Window>
