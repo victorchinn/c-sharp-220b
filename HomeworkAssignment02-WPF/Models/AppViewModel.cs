@@ -9,10 +9,12 @@ namespace HomeworkAssignment02_WPF.Models
     public class ViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<Users> _DataCollection;
+        private ObservableCollection<Users> _DataCollectionAfter;
 
         public ViewModel()
         {
             _DataCollection = new ObservableCollection<Users>();
+            _DataCollectionAfter = new ObservableCollection<Users>();
             LoadInitialData();
 
         }
@@ -28,6 +30,12 @@ namespace HomeworkAssignment02_WPF.Models
         {
             get { return _DataCollection; }
             set { _DataCollection = value; }
+        }
+
+        public ObservableCollection<Users> DataCollectionAfter
+        {
+            get { return _DataCollectionAfter; }
+            set { _DataCollectionAfter = value; }
         }
 
         // INotifyPropertyChanged interface

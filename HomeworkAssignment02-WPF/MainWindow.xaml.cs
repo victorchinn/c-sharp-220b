@@ -37,11 +37,25 @@ namespace HomeworkAssignment02_WPF
 
         private void First_Action_Click(object sender, RoutedEventArgs e)
         {
-
+            var answers = from Users in MainAppViewModel.DataCollection
+                                                   where Users.Password == "hello"
+                                                   select Users;
+            foreach (Users _EachUSER in answers)
+            {
+                MainAppViewModel.DataCollectionAfter.Add(_EachUSER);
+            }
         }
 
         private void Second_Action_Click(object sender, RoutedEventArgs e)
         {
+            var answers = from Users in MainAppViewModel.DataCollection
+                          where Users.Password.ToLower() == Users.Name.ToLower()
+                          select Users;
+
+            foreach (Users _EachUSER in answers)
+            {
+                _EachUSER.Password = "";
+            }
 
         }
 

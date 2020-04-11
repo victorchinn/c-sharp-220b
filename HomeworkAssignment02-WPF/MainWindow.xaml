@@ -27,23 +27,42 @@
                     Click="LoadList_Click" />
             <Button x:Name="First_Action"
                     Content="Show Hellow PW"
-                    Click="First_Action_Click"/>
+                    Click="First_Action_Click" />
             <Button x:Name="Second_Action"
-                    Content="Delete password=first name(lc)" 
-                    Click="Second_Action_Click"/>
+                    Content="Delete password=first name(lc)"
+                    Click="Second_Action_Click" />
             <Button x:Name="Third_Action"
-                    Content="Delete 1st User pw=hello" 
-                    Click="Third_Action_Click"/>
+                    Content="Delete 1st User pw=hello"
+                    Click="Third_Action_Click" />
             <Button x:Name="Fourth_Action"
-                    Content="Delete password=first name(lc)" 
-                    Click="Fourth_Action_Click"/>
+                    Content="Delete password=first name(lc)"
+                    Click="Fourth_Action_Click" />
         </StackPanel>
-        <StackPanel Orientation="Vertical"
+        <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
                     Grid.Column="1">
             <ListView x:Name="MainWindowListView"
                       ItemsSource="{Binding DataCollection}"
-                      Height="100">
+                      Height="100"
+                      Width="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="Name: " />
+                            <TextBlock Text="{Binding Name}"
+                                       FontWeight="Bold" />
+                            <TextBlock Text=", " />
+                            <TextBlock Text="Password: " />
+                            <TextBlock Text="{Binding Password}"
+                                       FontWeight="Bold" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView ItemsSource="{Binding DataCollectionAfter}"
+                      Height="100"
+                      Width="200">
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>

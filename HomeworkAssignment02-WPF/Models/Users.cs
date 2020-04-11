@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
-namespace HomeworkAssignment02_WPF.Models
+namespace HomeworkAssignment02_WPF.Models 
 {
-    public class Users
+    public class Users : INotifyPropertyChanged
     {
         private string _Name;
         public string Name
@@ -13,7 +14,9 @@ namespace HomeworkAssignment02_WPF.Models
             set
             {
                 _Name = value;
+                NotifyPropertyChanged("Name");
             }
+
         }
 
         private string _Password ;
@@ -23,6 +26,18 @@ namespace HomeworkAssignment02_WPF.Models
             set
             {
                 _Password = value;
+                NotifyPropertyChanged("Password");
+            }
+        }
+
+        // INotifyPropertyChanged interface
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
