@@ -26,16 +26,16 @@
                     Content="Load List"
                     Click="LoadList_Click" />
             <Button x:Name="First_Action"
-                    Content="Show Hellow PW"
+                    Content="Users with password==hello"
                     Click="First_Action_Click" />
             <Button x:Name="Second_Action"
-                    Content="Delete password=first name(lc)"
+                    Content="Delete password==first name(lc)"
                     Click="Second_Action_Click" />
             <Button x:Name="Third_Action"
                     Content="Delete 1st User pw=hello"
                     Click="Third_Action_Click" />
             <Button x:Name="Fourth_Action"
-                    Content="Delete password=first name(lc)"
+                    Content="Clear both lists"
                     Click="Fourth_Action_Click" />
         </StackPanel>
         <StackPanel Orientation="Horizontal"

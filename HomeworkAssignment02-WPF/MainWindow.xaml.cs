@@ -62,10 +62,15 @@ namespace HomeworkAssignment02_WPF
         private void Third_Action_Click(object sender, RoutedEventArgs e)
         {
 
+            Users answers = MainAppViewModel.DataCollection.Where(x => x.Password == "hello").First();
+
+            MainAppViewModel.DataCollection.Remove(answers);
         }
 
         private void Fourth_Action_Click(object sender, RoutedEventArgs e)
         {
+            MainAppViewModel.DataCollection.Clear();
+            MainAppViewModel.DataCollectionAfter.Clear();
 
         }
     }
