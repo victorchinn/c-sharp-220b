@@ -40,11 +40,23 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
+                    Grid.RowSpan="2"
                     Grid.Column="1">
             <ListView x:Name="MainWindowListView"
                       ItemsSource="{Binding DataCollection}"
-                      Height="100"
                       Width="200">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="First Name"
+                                        DisplayMemberBinding="{Binding Name}"
+                                        Width="100" />
+                        <GridViewColumn Header="Password"
+                                        DisplayMemberBinding="{Binding Password}"
+                                        Width="100">
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
