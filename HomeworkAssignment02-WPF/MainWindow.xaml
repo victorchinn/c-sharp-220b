@@ -11,9 +11,8 @@
         Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -22,9 +21,12 @@
         <StackPanel Orientation="Vertical"
                     Grid.Row="0"
                     Grid.Column="0">
-            <Button x:Name="LoadList"
-                    Content="Load List"
-                    Click="LoadList_Click" />
+            <Button x:Name="LoadListForUnsorted"
+                    Content="Load List Assignment 2"
+                    Click="LoadListForUnsorted_Click" />
+            <Button x:Name="LoadListForSorted"
+                    Content="Load List Assignment 3"
+                    Click="LoadListForSorted_Click" />
             <Button x:Name="First_Action"
                     Content="Users with password==hello"
                     Click="First_Action_Click" />
@@ -40,19 +42,29 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
-                    Grid.RowSpan="2"
                     Grid.Column="1">
             <ListView x:Name="MainWindowListView"
                       ItemsSource="{Binding DataCollection}"
-                      Width="200">
+                      MouseLeftButtonUp="MainWindowListView_MouseLeftButtonUp"
+                      Width="225">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="First Name"
-                                        DisplayMemberBinding="{Binding Name}"
-                                        Width="100" />
-                        <GridViewColumn Header="Password"
-                                        DisplayMemberBinding="{Binding Password}"
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                        x:Name="NameColumn"
                                         Width="100">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Name="lvUsersColumnHeader"
+                                                      Tag="Name"
+                                                      Content="Name"
+                                                      Click="lvUsersColumnHeader_Click" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Password}"
+                                        x:Name="PasswordColumn"
+                                        Width="100">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="Password" Content="Password" Click="lvUsersColumnHeader_Click" />
+                            </GridViewColumn.Header>
                         </GridViewColumn>
                     </GridView>
                 </ListView.View>
@@ -72,9 +84,8 @@
                 </ListView.ItemTemplate>
             </ListView>
             <ListView ItemsSource="{Binding DataCollectionAfter}"
-                      Height="100"
                       Width="200">
-                
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
@@ -90,5 +101,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
+
     </Grid>
 </Window>

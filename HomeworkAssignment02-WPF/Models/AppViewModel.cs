@@ -15,15 +15,22 @@ namespace HomeworkAssignment02_WPF.Models
         {
             _DataCollection = new ObservableCollection<Users>();
             _DataCollectionAfter = new ObservableCollection<Users>();
-            LoadInitialData();
+            LoadInitialDataForUnsorted();
 
         }
-
-        public void LoadInitialData()
+        public void LoadInitialDataForUnsorted()
         {
             _DataCollection.Add(new Models.Users { Name = "Dave", Password = "hello" });
             _DataCollection.Add(new Models.Users { Name = "Steve", Password = "steve" });
             _DataCollection.Add(new Models.Users { Name = "Lisa", Password = "hello" });
+        }
+
+
+        public void LoadInitialDataForSorted()
+        {
+            _DataCollection.Add(new Models.Users { Name = "Dave", Password = "1DavePwd" });
+            _DataCollection.Add(new Models.Users { Name = "Steve", Password = "2StevePwd" });
+            _DataCollection.Add(new Models.Users { Name = "Lisa", Password = "3LisaPwd" });
         }
 
         public ObservableCollection<Users> DataCollection

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWorkAssignment01", "Hom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThumbsUp", "ThumbsUp\ThumbsUp.csproj", "{8CAC8E85-5F5A-4006-94D4-3E839C4AE2C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkAssignment02-WPF", "HomeworkAssignment02-WPF\HomeworkAssignment02-WPF.csproj", "{7AA11158-1513-4F7D-9742-B0152A75E7A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeworkAssignment02-WPF", "HomeworkAssignment02-WPF\HomeworkAssignment02-WPF.csproj", "{7AA11158-1513-4F7D-9742-B0152A75E7A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
