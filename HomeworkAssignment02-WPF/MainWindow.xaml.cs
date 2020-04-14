@@ -84,6 +84,15 @@ namespace HomeworkAssignment02_WPF
             MainAppViewModel.DataCollection.Clear();
             MainAppViewModel.DataCollectionAfter.Clear();
 
+            First_Action.IsEnabled = false;
+            Second_Action.IsEnabled = false;
+            Third_Action.IsEnabled = false;
+            Fourth_Action.IsEnabled = false;
+
+            LoadListForSorted.IsEnabled = true;
+            LoadListForUnsorted.IsEnabled = true;
+
+
         }
 
         private void MainWindowListView_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -110,11 +119,24 @@ namespace HomeworkAssignment02_WPF
         private void LoadListForUnsorted_Click(object sender, RoutedEventArgs e)
         {
             MainAppViewModel.LoadInitialDataForUnsorted();
+            First_Action.IsEnabled = true;
+            Second_Action.IsEnabled = true;
+            Third_Action.IsEnabled = true;
+            Fourth_Action.IsEnabled = true;
+
+            LoadListForSorted.IsEnabled = false; 
+
         }
 
         private void LoadListForSorted_Click(object sender, RoutedEventArgs e)
         {
             MainAppViewModel.LoadInitialDataForSorted();
+            First_Action.IsEnabled = false;
+            Second_Action.IsEnabled = false;
+            Third_Action.IsEnabled = false;
+            Fourth_Action.IsEnabled = true;
+
+            LoadListForUnsorted.IsEnabled = false;
         }
 
         private GridViewColumnHeader listViewSortCol = null;

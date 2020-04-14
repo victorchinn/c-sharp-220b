@@ -28,15 +28,19 @@
                     Content="Load List Assignment 3"
                     Click="LoadListForSorted_Click" />
             <Button x:Name="First_Action"
+                    IsEnabled="False"
                     Content="Users with password==hello"
                     Click="First_Action_Click" />
             <Button x:Name="Second_Action"
+                    IsEnabled="False"
                     Content="Delete password==first name(lc)"
                     Click="Second_Action_Click" />
             <Button x:Name="Third_Action"
+                    IsEnabled="False"
                     Content="Delete 1st User pw=hello"
                     Click="Third_Action_Click" />
             <Button x:Name="Fourth_Action"
+                    IsEnabled="False"
                     Content="Clear both lists"
                     Click="Fourth_Action_Click" />
         </StackPanel>
