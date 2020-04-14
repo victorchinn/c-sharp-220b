@@ -22,10 +22,10 @@
                     Grid.Row="0"
                     Grid.Column="0">
             <Button x:Name="LoadListForUnsorted"
-                    Content="Load List Assignment 2"
+                    Content="Load List HW Assignment 2"
                     Click="LoadListForUnsorted_Click" />
             <Button x:Name="LoadListForSorted"
-                    Content="Load List Assignment 3"
+                    Content="Load List HW Assignment 3"
                     Click="LoadListForSorted_Click" />
             <Button x:Name="First_Action"
                     IsEnabled="False"
@@ -41,7 +41,7 @@
                     Click="Third_Action_Click" />
             <Button x:Name="Fourth_Action"
                     IsEnabled="False"
-                    Content="Clear both lists"
+                    Content="Clear both lists / Reset"
                     Click="Fourth_Action_Click" />
         </StackPanel>
         <StackPanel Orientation="Horizontal"
