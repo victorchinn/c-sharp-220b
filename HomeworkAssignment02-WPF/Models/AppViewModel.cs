@@ -15,7 +15,6 @@ namespace HomeworkAssignment02_WPF.Models
         {
             _DataCollection = new ObservableCollection<Users>();
             _DataCollectionAfter = new ObservableCollection<Users>();
-            LoadInitialDataForUnsorted();
 
         }
         public void LoadInitialDataForUnsorted()

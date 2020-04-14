@@ -145,6 +145,12 @@ namespace HomeworkAssignment02_WPF
 
         }
 
+
+
+
+
+
+
         public class SortAdorner : Adorner
         {
             private static Geometry ascGeometry =
