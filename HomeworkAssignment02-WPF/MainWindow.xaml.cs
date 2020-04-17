@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace HomeworkAssignment02_WPF
 {
@@ -30,13 +31,14 @@ namespace HomeworkAssignment02_WPF
             InitializeComponent();
             MainWindowView.DataContext = MainAppViewModel;
             MainWindowListView.Items.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
+
         }
 
         private void First_Action_Click(object sender, RoutedEventArgs e)
         {
             var answers = from Users in MainAppViewModel.DataCollection
-                                                   where Users.Password == "hello"
-                                                   select Users;
+                          where Users.Password == "hello"
+                          select Users;
             MainAppViewModel.DataCollectionAfter.Clear();   // SELECT ONLY THE USERS == "hello" AND DISPLAY THEM SEPARATELY
             foreach (Users _EachUSER in answers)
             {
@@ -70,7 +72,7 @@ namespace HomeworkAssignment02_WPF
 
                     MainWindowListView.Items.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
                 }
-                catch(Exception Ex)
+                catch (Exception Ex)
                 {
                     MessageBox.Show($"No password == \"hello\" in list. {Ex.Message}.");
                 }
@@ -124,7 +126,7 @@ namespace HomeworkAssignment02_WPF
             Third_Action.IsEnabled = true;
             Fourth_Action.IsEnabled = true;
 
-            LoadListForSorted.IsEnabled = false; 
+            LoadListForSorted.IsEnabled = false;
 
         }
 
@@ -211,5 +213,28 @@ namespace HomeworkAssignment02_WPF
                 drawingContext.Pop();
             }
         }
+
+        private void LoadListFromDB_Click(object sender, RoutedEventArgs e)
+        {
+            var sample = new SampleContext();
+            sample.User.Load();
+            var users = sample.User.Local.ToObservableCollection();
+            uxList.ItemsSource = users;
+        }
+
+        private void uxComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            uxGrid.DataContext = e.AddedItems[0];
+        }
+
+        private void LoadListFromDB_ToComboBox_Click(object sender, RoutedEventArgs e)
+        {
+            var sample = new SampleContext();
+            sample.User.Load();
+            uxComboBox.ItemsSource = sample.User.Local.ToObservableCollection();
+        }
+
     }
 }
+
+

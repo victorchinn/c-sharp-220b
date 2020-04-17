@@ -13,6 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
             <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -67,7 +68,9 @@
                                         x:Name="PasswordColumn"
                                         Width="100">
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Tag="Password" Content="Password" Click="lvUsersColumnHeader_Click" />
+                                <GridViewColumnHeader Tag="Password"
+                                                      Content="Password"
+                                                      Click="lvUsersColumnHeader_Click" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
                     </GridView>
@@ -106,5 +109,60 @@
             </ListView>
         </StackPanel>
 
+        <StackPanel Grid.Row="2"
+                    Orientation="Vertical">
+            <Button x:Name="LoadListFromDB"
+                    Content="Load List From DB PROJECT"
+                    Click="LoadListFromDB_Click" />
+            <Button x:Name="LoadListFromDB_ToComboBox"
+                    Content="Load List From DB to ComboBox"
+                    Click="LoadListFromDB_ToComboBox_Click" />
+
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel Orientation="Vertical">
+                    <ListView x:Name="uxList">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding UserName}"
+                                                Header="User Name"
+                                                Width="100" />
+                                <GridViewColumn DisplayMemberBinding="{Binding UserPassword}"
+                                                Header="Password"
+                                                Width="100" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <ComboBox x:Name="uxComboBox"
+                              DisplayMemberPath="UserName"
+                              SelectionChanged="uxComboBox_SelectionChanged" />
+
+                    <Grid x:Name="uxGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0"
+                                   Text="User Name:" />
+                        <TextBox Grid.Row="1"
+                                 Text="{Binding UserName}" />
+                        <TextBlock Grid.Row="2"
+                                   Text="Password:"
+                                   Background="AliceBlue" />
+                        <TextBox Grid.Row="3"
+                                 Text="{Binding UserPassword}" />
+                    </Grid>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Window>
