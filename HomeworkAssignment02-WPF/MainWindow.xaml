@@ -20,6 +20,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical"
+                    Background="DarkSlateGray"
                     Grid.Row="0"
                     Grid.Column="0">
             <Button x:Name="LoadListForUnsorted"
@@ -46,6 +47,7 @@
                     Click="Fourth_Action_Click" />
         </StackPanel>
         <StackPanel Orientation="Horizontal"
+                    Background="LightBlue"
                     Grid.Row="0"
                     Grid.Column="1">
             <ListView x:Name="MainWindowListView"
@@ -110,6 +112,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2"
+                    Background="LightSlateGray"
                     Orientation="Vertical">
             <Button x:Name="LoadListFromDB"
                     Content="Load List From DB PROJECT"
