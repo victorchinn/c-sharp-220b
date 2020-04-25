@@ -1,0 +1,33 @@
+﻿<Window x:Class="HomeWorkAssignment04.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HomeWorkAssignment04"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Enter US Zip Code ##### or #####-#### or Canadian A#B#C# Postal Code "
+                   FontSize="22" />
+            <TextBox x:Name="EnterZipCode_TextBox"
+                     FontSize="22"
+                     KeyUp="EnterZipCode_TextBox_KeyUp"
+                     PreviewTextInput="EnterZipCode_TextBox_PreviewTextInput" />
+            <Button x:Name="Submit_Button"
+                    FontSize="22"
+                    Content="Submit"
+                    IsEnabled="False" />
+        </StackPanel>
+    </Grid>
+
+</Window>

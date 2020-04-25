@@ -1,0 +1,31 @@
+﻿<Window x:Class="MenuWindow.StatusWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MenuWindow"
+        mc:Ignorable="d"
+        Title="StatusWindow" Height="450" Width="800">
+    <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="uxStatus"></TextBlock>
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem>
+                <ProgressBar x:Name="uxProgressBar"
+                             Value="50"
+                             Width="90"
+                             Height="16"></ProgressBar>
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem>
+                <TextBox x:Name="MAX_CHARS" Width="50" Background="Blue" Foreground="White" Text="100" KeyUp="MAX_CHARS_KeyUp"/>
+            </StatusBarItem>
+        </StatusBar>
+        <TextBox x:Name="uxTextEditor"
+                 AcceptsReturn="true"
+                 MaxLength="100"
+                 SelectionChanged="uxTextEditor_SelectionChanged"></TextBox>
+    </DockPanel>
+</Window>
