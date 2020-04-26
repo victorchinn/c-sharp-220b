@@ -90,35 +90,45 @@ namespace HomeworkAssignment05
                     _Sender.Content = "O";
                 }
                 _GameBoard[_Index] = CurrentTurnMarker;
+
+                // now check to see if there is a winner
+                if (((CheckRow(CurrentTurnMarker) == true) || (CheckCol(CurrentTurnMarker) == true) || (CheckDiag(CurrentTurnMarker) == true)))
+                {
+                    uxTurn.Text += " WINNER !! WINNER !! ";
+                    GameOver = true;
+                    return;
+                }
+
+                // SEE IF THERE ARE ANY BLANKS LEFT ... IF NO BLANKS THEN GAME IS OVER
+                if (CheckBlankSpace() == false)
+                {
+                    GameOver = true;
+                    uxTurn.Text = "Game Over. Draw.";
+                    return;
+                }
+
+                // CHANGE TO THE NEXT PLAYER
+                if (CurrentTurnMarker == BoardMarker.Mark_X)
+                {
+                    CurrentTurnMarker = BoardMarker.Mark_O;
+                    uxTurn.Text = "It is now Player O's turn.";
+                }
+                else
+                {
+                    CurrentTurnMarker = BoardMarker.Mark_X;
+                    uxTurn.Text = "It is now Player X's turn.";
+                }
+
+
+
+
+
+
+
+
+
             }
 
-            // now check to see if there is a winner
-            if (((CheckRow(CurrentTurnMarker) == true) || (CheckCol(CurrentTurnMarker) == true) || (CheckDiag(CurrentTurnMarker) == true)))
-            {
-                uxTurn.Text += " WINNER !! WINNER !! ";
-                GameOver = true;
-                return;
-            }
-
-            // SEE IF THERE ARE ANY BLANKS LEFT ... IF NO BLANKS THEN GAME IS OVER
-            if (CheckBlankSpace() == false)
-            {
-                GameOver = true;
-                uxTurn.Text = "Game Over. Draw.";
-                return;
-            }
-
-            // CHANGE TO THE NEXT PLAYER
-            if (CurrentTurnMarker == BoardMarker.Mark_X)
-            {
-                CurrentTurnMarker = BoardMarker.Mark_O;
-                uxTurn.Text = "It is now Player O's turn.";
-            }
-            else
-            {
-                CurrentTurnMarker = BoardMarker.Mark_X;
-                uxTurn.Text = "It is now Player X's turn.";
-            }
         }
 
         private bool CheckRow(BoardMarker _Marker)
