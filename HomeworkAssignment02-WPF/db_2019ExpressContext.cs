@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HomeworkAssignment02_WPF
 {
-    public partial class SampleContext : DbContext
+    public partial class db_2019ExpressContext : DbContext
     {
-        public SampleContext()
+        public db_2019ExpressContext()
         {
         }
 
-        public SampleContext(DbContextOptions<SampleContext> options)
+        public db_2019ExpressContext(DbContextOptions<db_2019ExpressContext> options)
             : base(options)
         {
         }
@@ -22,8 +22,7 @@ namespace HomeworkAssignment02_WPF
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=Sample;integrated security=True");
-//                optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=Sample;integrated security=True");
+                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=db_2019Express;integrated security=True");
             }
         }
 

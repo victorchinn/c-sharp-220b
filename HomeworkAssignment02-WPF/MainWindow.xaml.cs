@@ -216,9 +216,16 @@ namespace HomeworkAssignment02_WPF
 
         private void LoadListFromDB_Click(object sender, RoutedEventArgs e)
         {
-            var sample = new SampleContext();
-            sample.User.Load();
-            var users = sample.User.Local.ToObservableCollection();
+//            var sample = new SampleContext();
+//            sample.User.Load();
+//            var users = sample.User.Local.ToObservableCollection();
+//            uxList.ItemsSource = users;
+//
+
+
+            var db2019 = new db_2019ExpressContext();
+            db2019.User.Load();
+            var users = db2019.User.Local.ToObservableCollection();
             uxList.ItemsSource = users;
         }
 
@@ -229,9 +236,14 @@ namespace HomeworkAssignment02_WPF
 
         private void LoadListFromDB_ToComboBox_Click(object sender, RoutedEventArgs e)
         {
-            var sample = new SampleContext();
-            sample.User.Load();
-            uxComboBox.ItemsSource = sample.User.Local.ToObservableCollection();
+//            var sample = new SampleContext();
+//            sample.User.Load();
+//            uxComboBox.ItemsSource = sample.User.Local.ToObservableCollection();
+
+            var db2019 = new db_2019ExpressContext();
+            db2019.User.Load();
+            uxComboBox.ItemsSource = db2019.User.Local.ToObservableCollection();
+
         }
 
     }
