@@ -34,6 +34,7 @@ namespace HomeworkAssignment05
 
         private void ClearGameBoard()
         {
+            // CLEAR THE GAME BOARD BY INDICATING THE MARKER TYPE IS BLANK IN EACH CELL
             _GameBoard.Clear(); // POPULATE THE DICTIONARY
             _GameBoard.Add("00", BoardMarker.Blank);
             _GameBoard.Add("01", BoardMarker.Blank);
@@ -45,42 +46,49 @@ namespace HomeworkAssignment05
             _GameBoard.Add("21", BoardMarker.Blank);
             _GameBoard.Add("22", BoardMarker.Blank);
 
+            // VISUALLY...THE CONTENT OF EACH BUTTON HAS NULL (NOTHING VISIBLE) ... COULD ALSO DO SPACE CHAR
             foreach (var _EachChild in uxGrid.Children)
             {
                 Button _EachButton = (Button)_EachChild;
                 _EachButton.Content = "";
             }
 
+            // FIRST TURN IS PLAYER X
             uxTurn.Text = "It is now Player X's turn.";
-
         }
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
         {
+            // START A NEW GAME BY CLEARING THE GAME BOARD AND RESET THE GAME OVER FLAG
             ClearGameBoard();
             GameOver = false;
-
         }
 
         private void uxExit_Click(object sender, RoutedEventArgs e)
         {
+            // EXIT // ALL DONE ! 
             App.Current.Shutdown();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // ONE OF THE CELL BUTTONS WAS CLICKED
 
+            // SEE IF THE GAME IS ALREADY OVER ...
             if (GameOver == true)
             {
                 uxTurn.Text = "Game is over.  Start a new game from the Menu.";
                 return;
             }
+
+            // FIND OUT WHICH BUTTON WAS CLICKED BY EVALUATING THE TAG FIELD
             Button _Sender = (Button)sender;
             string _ButtonID_Tag = _Sender.Tag.ToString();
 
             string _Index = _ButtonID_Tag.Remove(_ButtonID_Tag.IndexOf(','), 1);   // strip the , character then use result as index into dictionary
 
-            if (_GameBoard[_Index] == BoardMarker.Blank)
+            if (_GameBoard[_Index] == BoardMarker.Blank)    // CLICKED ON A BLANK SPOT ON THE BOARD
             {
+                // PUT THE MARKER OF THE CURRENT PLAYER ONTO THE BOARD
                 if (CurrentTurnMarker == BoardMarker.Mark_X)
                 {
                     _Sender.Content = "X";
@@ -91,7 +99,7 @@ namespace HomeworkAssignment05
                 }
                 _GameBoard[_Index] = CurrentTurnMarker;
 
-                // now check to see if there is a winner
+                // CHECK TO SEE IF THERE IS A WINNER 
                 if (((CheckRow(CurrentTurnMarker) == true) || (CheckCol(CurrentTurnMarker) == true) || (CheckDiag(CurrentTurnMarker) == true)))
                 {
                     uxTurn.Text += " WINNER !! WINNER !! ";
@@ -99,7 +107,7 @@ namespace HomeworkAssignment05
                     return;
                 }
 
-                // SEE IF THERE ARE ANY BLANKS LEFT ... IF NO BLANKS THEN GAME IS OVER
+                // SEE IF THERE ARE ANY BLANKS LEFT ... IF NO BLANKS LEFT THEN GAME IS OVER AND THERE WAS NO WINNER
                 if (CheckBlankSpace() == false)
                 {
                     GameOver = true;
@@ -107,7 +115,7 @@ namespace HomeworkAssignment05
                     return;
                 }
 
-                // CHANGE TO THE NEXT PLAYER
+                // MOVE FINISEHD ... NOW CHANGE TO THE NEXT PLAYER AND CYCLE
                 if (CurrentTurnMarker == BoardMarker.Mark_X)
                 {
                     CurrentTurnMarker = BoardMarker.Mark_O;
@@ -118,21 +126,12 @@ namespace HomeworkAssignment05
                     CurrentTurnMarker = BoardMarker.Mark_X;
                     uxTurn.Text = "It is now Player X's turn.";
                 }
-
-
-
-
-
-
-
-
-
             }
-
         }
 
         private bool CheckRow(BoardMarker _Marker)
         {
+            // CHECK THE ROWS TO SEE IF THERE IS THREE IN A ROW FOR THE INDICATED MARKER TYPE
             for (int _Row = 0; _Row <= 2; _Row++)
             {
                 string _Index = _Row.ToString();
@@ -146,6 +145,7 @@ namespace HomeworkAssignment05
 
         private bool CheckCol(BoardMarker _Marker)
         {
+            // CHECK THE COLUMNS TO SEE IF THERE IS THREE IN A COL FOR THE INDICATED MARKER TYPE
             for (int _Col = 0; _Col <= 2; _Col++)
             {
                 string _Index = _Col.ToString();
@@ -159,6 +159,7 @@ namespace HomeworkAssignment05
 
         private bool CheckDiag(BoardMarker _Marker)
         {
+            // CHECK THE DIAGONALS TO SEE IF THERE IS THREE IN A ROW FOR THE INDICATED MARKER TYPE
             if (((_GameBoard["00"] == _Marker) && (_GameBoard["11"] == _Marker) && (_GameBoard["22"] == _Marker)) ||
                 ((_GameBoard["20"] == _Marker) && (_GameBoard["11"] == _Marker) && (_GameBoard["02"] == _Marker)))
             { return true; }
@@ -168,6 +169,7 @@ namespace HomeworkAssignment05
 
         private bool CheckBlankSpace()
         {
+            // CHECK TO SEE IF THERE ARE ANY AVAILABLE SPACES LEFT TO PUT EITHER AN X OR AN O
             bool _BlankFound = false;
 
             for (int _Row = 0; _Row <= 2; _Row++ )
