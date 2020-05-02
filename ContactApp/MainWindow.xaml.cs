@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HomeWorkAssignment01
+namespace ContactApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,24 +25,14 @@ namespace HomeWorkAssignment01
             InitializeComponent();
         }
 
-        private void uxSubmit_Click(object sender, RoutedEventArgs e)
+        private void OnNew_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Submitting password:" + uxPassword.Text);
+            MessageBox.Show("New command");
         }
 
-        private void uxName_OR_uxPassword_TextChanged(object sender, TextChangedEventArgs e)
+        private void OnNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            // HANDLE CHECK TO ENABLE/DISABLE THE SUBMIT BUTTON
-            // changing either text uxName or uxPassword will call this method
-
-            if ((uxName.Text == "") || (uxPassword.Text == ""))
-            {
-//                uxSubmit.IsEnabled = false;
-            }
-            else
-            {
-//                uxSubmit.IsEnabled = true;
-            };
+            e.CanExecute = true;
         }
     }
 }

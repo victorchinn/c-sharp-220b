@@ -26,6 +26,5 @@
                 Click="uxSubmit_Click"
                 Content="Submit"
                 IsEnabled="False" />
-
     </StackPanel>
 </Window>
