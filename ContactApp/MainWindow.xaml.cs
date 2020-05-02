@@ -25,14 +25,26 @@ namespace ContactApp
             InitializeComponent();
         }
 
-        private void OnNew_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("New command");
-        }
-
-        private void OnNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void uxFileNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
+        }
+
+        private void uxFileNew_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ContactWindow();
+
+            if (window.ShowDialog() == true)
+            {
+                var uiContactModel = window.Contact;
+
+                var repositoryContactModel = uiContactModel.ToRepositoryModel();
+
+                App.ContactRepository.Add(repositoryContactModel);
+
+                // OR
+                //App.ContactRepository.Add(window.Contact.ToRepositoryModel());
+            }
         }
     }
 }

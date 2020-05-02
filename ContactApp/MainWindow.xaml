@@ -10,15 +10,15 @@
         Width="800">
     <Window.CommandBindings>
         <CommandBinding Command="New"
-                        CanExecute="OnNew_CanExecute"
-                        Executed="OnNew_Click" />
+                        CanExecute="uxFileNew_CanExecute"
+                        Executed="uxFileNew_Click" />
     </Window.CommandBindings>
 
     <StackPanel>
         <Menu x:Name="WindowMainMenu">
             <MenuItem Header="_File" >
                 <MenuItem Header="_New"
-                          Click="OnNew_Click" />
+                          Click="uxFileNew_Click" />
                 <MenuItem Header="_Two" />
             </MenuItem>
         </Menu>
