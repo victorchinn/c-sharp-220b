@@ -36,7 +36,7 @@ namespace ContactApp
             }
 
             Contact.PhoneNumber = uxPhoneNumber.Text;
-            Contact.Age = 0;
+            Contact.Age = Convert.ToInt32(uxContactAge.Value);
             Contact.Notes = uxNotes.Text;
             Contact.CreatedDate = DateTime.Now;
 
