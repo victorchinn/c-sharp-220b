@@ -87,7 +87,7 @@ namespace ContactApp
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
         {
             var window = new ContactWindow();
-            window.Contact = selectedContact;
+            window.Contact = ((ContactModel) selectedContact.Clone());
 
             if (window.ShowDialog() == true)
             {
@@ -184,6 +184,18 @@ namespace ContactApp
         }
 
 
+        private void uxFileChange_Click(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
 
+        private void uxContextFileChange_Loaded(object sender, RoutedEventArgs e)
+        {
+            // do this also for context file change to change too !!
+            uxFileChange.IsEnabled = (selectedContact != null);
+            uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
+
+
+        }
     }
 }

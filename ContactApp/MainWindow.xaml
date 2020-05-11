@@ -34,6 +34,7 @@
         </Menu>
         <ListView x:Name="uxContactList"
                   Height="200"
+                  MouseDoubleClick="uxFileChange_Click"
                   SelectionChanged="uxContactList_SelectionChanged">
 
             <ListView.ContextMenu>
@@ -43,6 +44,7 @@
                               Click="uxFileNew_Click" />
                     <MenuItem x:Name="uxContextFileChange"
                               Header="_Modify"
+                              Loaded="uxContextFileChange_Loaded"
                               Click="uxFileChange_Click" />
                     <MenuItem x:Name="uxContextFileDelete"
                               Header="_Delete"

@@ -46,5 +46,20 @@ namespace ContactApp.Models
 
             return contactModel;
         }
+
+        public ContactModel Clone()
+        {
+            // need to implement this but how? why? 
+            // 05.08.2020
+
+            // deep copy
+            //            Person other = (Person)this.MemberwiseClone();
+            //            other.IdInfo = new IdInfo(IdInfo.IdNumber);
+            //            other.Name = String.Copy(Name);
+            //            return other;
+            //
+            return (ContactModel) this.MemberwiseClone();
+
+        }
     }
 }
