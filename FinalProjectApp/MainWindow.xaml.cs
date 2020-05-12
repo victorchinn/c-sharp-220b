@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FinalProject
+namespace FinalProjectApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,31 @@ namespace FinalProject
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void WindowMainMENU_FileNew_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void WindowMainMENU_FileDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void WindowMainMENU_FileDelete_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void WindowMainMENU_FileModify_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void WindowMainMENU_FileModify_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
