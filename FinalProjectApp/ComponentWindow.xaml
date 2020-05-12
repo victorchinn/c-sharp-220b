@@ -1,0 +1,98 @@
+﻿<Window x:Class="FinalProjectApp.ComponentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProjectApp"
+        mc:Ignorable="d"
+        Title="ComponentWindow"
+        Height="250"
+        Width="500"
+        FocusManager.FocusedElement="{Binding ElementName=uxName}">
+
+    <Grid x:Name="uxGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0"
+                   Grid.Row="0"
+                   HorizontalAlignment="Right"
+                   Text="Name:" />
+        <TextBox x:Name="uxName"
+                 Grid.Column="1"
+                 Grid.Row="0" />
+
+        <TextBlock Grid.Column="0"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   Text="Email:" />
+
+        <TextBox x:Name="uxEmail"
+                 Grid.Column="1"
+                 Grid.Row="1" />
+
+        <TextBlock Grid.Column="0"
+                   Grid.Row="2"
+                   HorizontalAlignment="Right"
+                   Text="Phone Number:" />
+        <TextBox x:Name="uxPhoneNumber"
+                 Grid.Column="1"
+                 Grid.Row="2" />
+
+        <TextBlock Grid.Column="0"
+                   Grid.Row="3"
+                   HorizontalAlignment="Right"
+                   Text="Phone Type:" />
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="1"
+                    Grid.Row="3">
+            <RadioButton x:Name="uxHome"
+                         IsChecked="true"
+                         Content="Home" />
+            <RadioButton x:Name="uxMobile"
+                         Content="Mobile" />
+        </StackPanel>
+
+        <TextBlock Grid.Column="0"
+                   Grid.Row="5"
+                   HorizontalAlignment="Right"
+                   Text="Notes:" />
+        <TextBox x:Name="uxNotes"
+                 Grid.Column="1"
+                 Grid.Row="5"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 Height="60" />
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    HorizontalAlignment="Left">
+            <Button x:Name="uxSubmit"
+                    MinWidth="10"
+                    HorizontalAlignment="Center"
+                    Click="uxSubmit_Click"
+                    Margin="10"
+                    Content="Add" />
+            <Button x:Name="uxCancel"
+                    MinWidth="10"
+                    HorizontalAlignment="Center"
+                    Click="uxCancel_Click"
+                    Margin="10"
+                    Content="Cancel" />
+        </StackPanel>
+    </Grid>
+
+</Window>

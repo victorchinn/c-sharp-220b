@@ -13,5 +13,20 @@ namespace FinalProjectApp
     /// </summary>
     public partial class App : Application
     {
+        private static FinalProjectRepository.ComponentRepository _componentRepository;
+
+        static App()
+        {
+            _componentRepository = new FinalProjectRepository.ComponentRepository();
+        }
+
+        public static FinalProjectRepository.ComponentRepository ContactRepository
+        {
+            get
+            {
+                return _componentRepository;
+            }
+        }
+
     }
 }
