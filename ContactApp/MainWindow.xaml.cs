@@ -87,7 +87,7 @@ namespace ContactApp
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
         {
             var window = new ContactWindow();
-            window.Contact = ((ContactModel) selectedContact.Clone());
+            window.Contact = ((ContactModel)selectedContact.Clone());
 
             if (window.ShowDialog() == true)
             {
@@ -186,7 +186,15 @@ namespace ContactApp
 
         private void uxFileChange_Click(object sender, MouseButtonEventArgs e)
         {
-            e.Handled = true;
+            var window = new ContactWindow();
+            window.Contact = ((ContactModel)selectedContact.Clone());   // GET A CLONE OF ITSELF TO THE WINDOW
+
+            if (window.ShowDialog() == true)
+            {
+                App.ContactRepository.Update(window.Contact.ToRepositoryModel());
+                LoadContacts();
+            }
+
         }
 
         private void uxContextFileChange_Loaded(object sender, RoutedEventArgs e)

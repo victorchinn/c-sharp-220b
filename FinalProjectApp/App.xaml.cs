@@ -20,7 +20,7 @@ namespace FinalProjectApp
             _componentRepository = new FinalProjectRepository.ComponentRepository();
         }
 
-        public static FinalProjectRepository.ComponentRepository ContactRepository
+        public static FinalProjectRepository.ComponentRepository ComponentRepository
         {
             get
             {

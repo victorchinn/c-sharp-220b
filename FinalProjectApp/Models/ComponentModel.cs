@@ -13,15 +13,14 @@ namespace FinalProjectApp.Models
 
     public class ComponentModel
     {
-//        public int Id { get; set; }
-//        public string Name { get; set; }
-//        public string Email { get; set; }
-//        public string Type { get; set; }
-//        public string MemberOf { get; set; }
-//        public int Description { get; set; }
-//        public string Notes { get; set; }
-//        public DateTime CreatedDate { get; set; }
-//
+        //        public int Id { get; set; }
+        //        public string Name { get; set; }
+        //        public string Email { get; set; }                 -- PartNumber
+        //        public string PhoneType { get; set; }             -- Type
+        //        public string PhoneNumber { get; set; }           -- MemberOf
+        //        public int Age { get; set; }                      -- Description
+        //        public string Notes { get; set; }
+        //        public System.DateTime CreatedDate { get; set; }
 
         public int Id { get; set; }
         public string Name { get; set; }
@@ -66,6 +65,23 @@ namespace FinalProjectApp.Models
 
             return _componentModel;
         }
+        public ComponentModel Clone()
+        {
+            // need to implement this but how? why? 
+            // 05.08.2020
+
+            // deep copy
+            //            Person other = (Person)this.MemberwiseClone();
+            //            other.IdInfo = new IdInfo(IdInfo.IdNumber);
+            //            other.Name = String.Copy(Name);
+            //            return other;
+            //
+
+            // CLONE THYSELF
+            return (ComponentModel)this.MemberwiseClone();
+
+        }
+
     }
 
 }

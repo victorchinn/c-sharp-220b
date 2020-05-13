@@ -34,7 +34,7 @@
         </Menu>
         <ListView x:Name="uxContactList"
                   Height="200"
-                  MouseDoubleClick="uxFileChange_Click"
+                  MouseDoubleClick="uxFileChange_Click" 
                   SelectionChanged="uxContactList_SelectionChanged">
 
             <ListView.ContextMenu>

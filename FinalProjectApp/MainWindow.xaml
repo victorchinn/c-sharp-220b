@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalProjectApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800" >
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Menu >
+            <Menu>
                 <MenuItem Header="_File">
                     <MenuItem x:Name="WindowMainMENU_FileNew"
                               Header="_New"
@@ -24,6 +26,44 @@
 
                 </MenuItem>
             </Menu>
+
+            <ListView x:Name="uxComponentList"
+                      Height="200"
+                      MouseDoubleClick="uxComponentList_MouseDoubleClick"
+                      SelectionChanged="uxComponentList_SelectionChanged">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="uxContextMENU_FileNew"
+                                  Header="_New"
+                                  Click="WindowMainMENU_FileNew_Click" />
+                        <MenuItem x:Name="uxContextMENU_FileModify"
+                                  Header="_Modify"
+                                  Click="WindowMainMENU_FileModify_Click" />
+                        <MenuItem x:Name="uxContextMENU_FileDelete"
+                                  Header="_Delete"
+                                  Click="WindowMainMENU_FileDelete_Click" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                        Header="Name"
+                                        Width="100" />
+                        <GridViewColumn DisplayMemberBinding="{Binding PartNumber}"
+                                        Header="Email"
+                                        Width="100" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Type}"
+                                        Header="Phone Type"
+                                        Width="100" />
+                        <GridViewColumn DisplayMemberBinding="{Binding MemberOf}"
+                                        Header="Phone Number"
+                                        Width="100" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Description}"
+                                        Header="Age"
+                                        Width="100" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
     </Grid>
 </Window>
