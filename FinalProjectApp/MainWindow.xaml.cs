@@ -97,12 +97,6 @@ namespace FinalProjectApp
         }
 
 
-
-
-
-
-
-
         private void WindowMainMENU_FileDelete_Click(object sender, RoutedEventArgs e)
         {
 
@@ -115,11 +109,6 @@ namespace FinalProjectApp
         {
             WindowMainMENU_FileDelete.IsEnabled = (_selectedComponent != null);
         }
-
-
-
-
-
 
 
         private void WindowMainMENU_FileModify_Click(object sender, RoutedEventArgs e)
@@ -143,8 +132,6 @@ namespace FinalProjectApp
 
 
 
-
-
         private void uxComponentList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var window = new ComponentWindow();
@@ -155,9 +142,6 @@ namespace FinalProjectApp
                 LoadContacts();
             }
         }
-
-
-
 
 
 
@@ -224,6 +208,15 @@ namespace FinalProjectApp
         private void WindowMainMENU_FileNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
+        }
+
+        private void uxContextMENU_FileModify_Loaded(object sender, RoutedEventArgs e)
+        {
+            // do this also for context file change to change too !!
+            WindowMainMENU_FileModify.IsEnabled = (_selectedComponent != null);
+            uxContextMENU_FileModify.IsEnabled = WindowMainMENU_FileModify.IsEnabled;
+
+
         }
     }
 }

@@ -193,7 +193,7 @@
                     HorizontalAlignment="Center"
                     Click="uxSubmit_Click"
                     Margin="10"
-                    Content="Submit" />
+                    Content="Add-Submit" />
             <Button x:Name="uxCancel"
                     MinWidth="10"
                     HorizontalAlignment="Center"

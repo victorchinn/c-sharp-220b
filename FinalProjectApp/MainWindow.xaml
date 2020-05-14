@@ -46,6 +46,7 @@
                                   Click="WindowMainMENU_FileNew_Click" />
                         <MenuItem x:Name="uxContextMENU_FileModify"
                                   Header="_Modify"
+                                  Loaded="uxContextMENU_FileModify_Loaded"
                                   Click="WindowMainMENU_FileModify_Click" />
                         <MenuItem x:Name="uxContextMENU_FileDelete"
                                   Header="_Delete"
