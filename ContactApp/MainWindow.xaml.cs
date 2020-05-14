@@ -23,6 +23,9 @@ namespace ContactApp
     public partial class MainWindow : Window
     {
 
+
+        private ContactModel selectedContact;
+
         private GridViewColumnHeader listViewSortCol = null;
         private SortAdorner listViewSortAdorner = null;
 
@@ -53,6 +56,13 @@ namespace ContactApp
 
             //uxContactList.ItemsSource = uiContactModelList;
         }
+        private void uxContactList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedContact = (ContactModel)uxContactList.SelectedValue;
+        }
+
+
+
 
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
         {
@@ -74,15 +84,31 @@ namespace ContactApp
         }
 
 
-
-
-
-
-
         private void uxFileNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }
+
+        private void uxFileDelete_Click(object sender, RoutedEventArgs e)
+        {
+            App.ContactRepository.Remove(selectedContact.Id);
+            selectedContact = null;
+            LoadContacts();
+        }
+
+        private void uxFileDelete_Loaded(object sender, RoutedEventArgs e)
+        {
+            uxFileDelete.IsEnabled = (selectedContact != null);
+            uxContextFileDelete.IsEnabled = uxFileDelete.IsEnabled;
+        }
+
+
+
+
+
+
+
+
 
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
         {
@@ -101,6 +127,32 @@ namespace ContactApp
             uxFileChange.IsEnabled = (selectedContact != null);
             uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
         }
+
+
+        private void uxFileChange_Click(object sender, MouseButtonEventArgs e)
+        {
+            var window = new ContactWindow();
+            window.Contact = ((ContactModel)selectedContact.Clone());   // GET A CLONE OF ITSELF TO THE WINDOW
+
+            if (window.ShowDialog() == true)
+            {
+                App.ContactRepository.Update(window.Contact.ToRepositoryModel());
+                LoadContacts();
+            }
+
+        }
+
+        private void uxContextFileChange_Loaded(object sender, RoutedEventArgs e)
+        {
+            // do this also for context file change to change too !!
+            uxFileChange.IsEnabled = (selectedContact != null);
+            uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
+
+
+        }
+
+
+
 
 
         private void uxGridViewColumnHeader_Click(object sender, RoutedEventArgs e)
@@ -163,47 +215,7 @@ namespace ContactApp
             }
         }
 
-        private ContactModel selectedContact;
-
-        private void uxContactList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            selectedContact = (ContactModel)uxContactList.SelectedValue;
-        }
-
-        private void uxFileDelete_Click(object sender, RoutedEventArgs e)
-        {
-            App.ContactRepository.Remove(selectedContact.Id);
-            selectedContact = null;
-            LoadContacts();
-        }
-
-        private void uxFileDelete_Loaded(object sender, RoutedEventArgs e)
-        {
-            uxFileDelete.IsEnabled = (selectedContact != null);
-            uxContextFileDelete.IsEnabled = uxFileDelete.IsEnabled;
-        }
 
 
-        private void uxFileChange_Click(object sender, MouseButtonEventArgs e)
-        {
-            var window = new ContactWindow();
-            window.Contact = ((ContactModel)selectedContact.Clone());   // GET A CLONE OF ITSELF TO THE WINDOW
-
-            if (window.ShowDialog() == true)
-            {
-                App.ContactRepository.Update(window.Contact.ToRepositoryModel());
-                LoadContacts();
-            }
-
-        }
-
-        private void uxContextFileChange_Loaded(object sender, RoutedEventArgs e)
-        {
-            // do this also for context file change to change too !!
-            uxFileChange.IsEnabled = (selectedContact != null);
-            uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
-
-
-        }
     }
 }

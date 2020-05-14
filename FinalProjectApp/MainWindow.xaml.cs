@@ -29,12 +29,6 @@ namespace FinalProjectApp
         private SortAdorner _listViewSortAdorner = null;
 
 
-
-
-        private void uxComponentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            _selectedComponent = (ComponentModel)uxComponentList.SelectedValue;
-        }
         public MainWindow()
         {
             InitializeComponent();
@@ -61,25 +55,32 @@ namespace FinalProjectApp
 
             //uxContactList.ItemsSource = uiContactModelList;
         }
-
-        private void uxFileNew_Click(object sender, RoutedEventArgs e)
+        private void uxComponentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var window = new ComponentWindow();
-
-            if (window.ShowDialog() == true)
-            {
-                var uiComponentModel = window.Component;
-
-                var repositoryContactModel = uiComponentModel.ToRepositoryModel();
-
-                App.ComponentRepository.Add(repositoryContactModel);
-
-                // OR
-                //App.ContactRepository.Add(window.Contact.ToRepositoryModel());
-
-                LoadContacts();
-            }
+            _selectedComponent = (ComponentModel)uxComponentList.SelectedValue;
         }
+
+
+
+
+//        private void uxFileNew_Click(object sender, RoutedEventArgs e)
+//        {
+//            var window = new ComponentWindow();
+//
+//            if (window.ShowDialog() == true)
+//            {
+//                var uiComponentModel = window.Component;
+//
+//                var repositoryContactModel = uiComponentModel.ToRepositoryModel();
+//
+//                App.ComponentRepository.Add(repositoryContactModel);
+//
+//                // OR
+//                //App.ContactRepository.Add(window.Contact.ToRepositoryModel());
+//
+//                LoadContacts();
+//            }
+//        }
         private void WindowMainMENU_FileNew_Click(object sender, RoutedEventArgs e)
         {
             var window = new ComponentWindow();
@@ -90,8 +91,17 @@ namespace FinalProjectApp
                 App.ComponentRepository.Add(repositoryComponentModel);
                 // OR
                 //App.ComponentRepository.Add(window.Component.ToRepositoryModel());
+
+                LoadContacts();
             }
         }
+
+
+
+
+
+
+
 
         private void WindowMainMENU_FileDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -105,6 +115,12 @@ namespace FinalProjectApp
         {
             WindowMainMENU_FileDelete.IsEnabled = (_selectedComponent != null);
         }
+
+
+
+
+
+
 
         private void WindowMainMENU_FileModify_Click(object sender, RoutedEventArgs e)
         {
@@ -124,6 +140,11 @@ namespace FinalProjectApp
             uxContextMENU_FileModify.IsEnabled = WindowMainMENU_FileModify.IsEnabled;
         }
 
+
+
+
+
+
         private void uxComponentList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var window = new ComponentWindow();
@@ -134,6 +155,11 @@ namespace FinalProjectApp
                 LoadContacts();
             }
         }
+
+
+
+
+
 
         private void uxGridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
@@ -195,5 +221,9 @@ namespace FinalProjectApp
             }
         }
 
+        private void WindowMainMENU_FileNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 }
