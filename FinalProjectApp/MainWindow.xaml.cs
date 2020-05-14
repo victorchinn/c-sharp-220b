@@ -104,10 +104,6 @@ namespace FinalProjectApp
             var window = new ComponentWindow();
 //            window.Component = _selectedComponent;    // original code
             window.Component = ((ComponentModel)_selectedComponent.Clone());   // GET A CLONE OF ITSELF TO THE WINDOW
-
-
-
-
             if (window.ShowDialog() == true)
             {
                 App.ComponentRepository.Update(window.Component.ToRepositoryModel());

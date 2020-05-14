@@ -127,7 +127,7 @@
                    HorizontalAlignment="Right"
                    Text="Email:" />
         <TextBox x:Name="uxEmail"
-                 Text="{Binding Name}"
+                 Text="{Binding PartNumber}"
                  Grid.Column="1"
                  Grid.Row="1" />
 
@@ -136,7 +136,7 @@
                    HorizontalAlignment="Right"
                    Text="Phone Number:" />
         <TextBox x:Name="uxPhoneNumber"
-                 Text="{Binding Name}"
+                 Text="{Binding MemberOf}"
                  Grid.Column="1"
                  Grid.Row="2" />
 
@@ -160,7 +160,7 @@
                    Text="Notes:" />
 
         <TextBox x:Name="uxNotes"
-                 Text="{Binding Name}"
+                 Text="{Binding Notes}"
                  Grid.Column="1"
                  Grid.Row="5"
                  AcceptsReturn="True"

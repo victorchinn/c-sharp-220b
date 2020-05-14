@@ -29,9 +29,10 @@ namespace FinalProjectApp
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
-            Component = new ComponentModel();
+            // Original code that existed BEFORE binding was introduced 
+            //            Component = new ComponentModel();
 
-            Component.Name = uxName.Text;
+            //            Component.Name = uxName.Text;
 
 
             //        public int Id { get; set; }
@@ -44,7 +45,7 @@ namespace FinalProjectApp
             //        public System.DateTime CreatedDate { get; set; }
 
             // Original code that existed BEFORE binding was introduced 
-//            Component.PartNumber = uxEmail.Text;
+            //            Component.PartNumber = uxEmail.Text;
 
             if (uxHome.IsChecked.Value)
             {
