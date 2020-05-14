@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:FinalProjectApp"
         mc:Ignorable="d"
         Title="ComponentWindow"
-        Height="250"
+        Height="325"
         Width="500"
-        FocusManager.FocusedElement="{Binding ElementName=uxName}"
+        FocusManager.FocusedElement="{Binding ElementName=uxPartNumber}"
         Loaded="Window_Loaded">
 
     <!--
@@ -114,23 +114,25 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0"
-                   Grid.Row="0"
-                   HorizontalAlignment="Right"
-                   Text="Name : " />
-        <TextBox x:Name="uxName"
-                 Text="{Binding Name}"
-                 Grid.Column="1"
-                 Grid.Row="0" />
 
         <TextBlock Grid.Column="0"
-                   Grid.Row="1"
+                   Grid.Row="0"
                    HorizontalAlignment="Right"
                    Text="PartNumber : " />
         <TextBox x:Name="uxPartNumber"
                  Text="{Binding PartNumber}"
                  Grid.Column="1"
+                 Grid.Row="0" />
+        
+        <TextBlock Grid.Column="0"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   Text="Name : " />
+        <TextBox x:Name="uxName"
+                 Text="{Binding Name}"
+                 Grid.Column="1"
                  Grid.Row="1" />
+
 
         <TextBlock Grid.Column="0"
                    Grid.Row="2"
@@ -158,7 +160,7 @@
         <TextBlock Grid.Column="0"
                    Grid.Row="5"
                    HorizontalAlignment="Right"
-                   Text="Notes : " />
+                   Text="Description : " />
 
         <TextBox x:Name="uxDescription"
                  Text="{Binding Description}"
@@ -172,7 +174,7 @@
         <TextBlock Grid.Column="0"
                    Grid.Row="6"
                    HorizontalAlignment="Right"
-                   Text="Description : " />
+                   Text="Notes : " />
 
         <TextBox x:Name="uxNotes"
                  Text="{Binding Notes}"
