@@ -31,9 +31,7 @@ namespace FinalProjectApp
         {
             // Original code that existed BEFORE binding was introduced 
             //            Component = new ComponentModel();
-
             //            Component.Name = uxName.Text;
-
 
             //        public int Id { get; set; }
             //        public string Name { get; set; }

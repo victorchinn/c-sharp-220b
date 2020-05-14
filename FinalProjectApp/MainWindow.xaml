@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
-        Width="800" >
+        Width="800">
     <Grid>
         <StackPanel Orientation="Vertical">
             <Menu>
@@ -45,22 +45,45 @@
                     </ContextMenu>
                 </ListView.ContextMenu>
                 <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Name}"
-                                        Header="Name"
-                                        Width="100" />
+                    <GridView x:Name="uxGridView">
                         <GridViewColumn DisplayMemberBinding="{Binding PartNumber}"
-                                        Header="Email"
-                                        Width="100" />
+                                        Width="100">
+                            <GridViewColumnHeader Tag="PartNumber"
+                                                  Click="uxGridViewColumnHeader_Click"
+                                                  Content="PartNumber" />
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                        Width="100">
+                            <GridViewColumnHeader Tag="Name"
+                                                  Click="uxGridViewColumnHeader_Click"
+                                                  Content="Name" />
+                        </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Type}"
-                                        Header="Phone Type"
-                                        Width="100" />
+                                        Width="100">
+                            <GridViewColumnHeader Tag="Type"
+                                                  Click="uxGridViewColumnHeader_Click"
+                                                  Content="Type" />
+                        </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding MemberOf}"
-                                        Header="Phone Number"
-                                        Width="100" />
+                                        Width="100">
+                            <GridViewColumnHeader Tag="MemberOf"
+                                                  Click="uxGridViewColumnHeader_Click"
+                                                  Content="MemberOf" />
+                        </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Description}"
-                                        Header="Age"
-                                        Width="100" />
+                                        Width="100">
+                            <GridViewColumnHeader Tag="Description"
+                                                  Click="uxGridViewColumnHeader_Click"
+                                                  Content="Description" />
+                        </GridViewColumn>
+
+                        <GridViewColumn DisplayMemberBinding="{Binding Notes}"
+                                        Width="100">
+                            <GridViewColumnHeader Tag="Notes"
+                                                  Click="uxGridViewColumnHeader_Click"
+                                                  Content="Notes" />
+                        </GridViewColumn>
+
                     </GridView>
                 </ListView.View>
             </ListView>

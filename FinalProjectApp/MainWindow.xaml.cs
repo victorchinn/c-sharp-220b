@@ -1,6 +1,7 @@
 ﻿using FinalProjectApp.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,12 @@ namespace FinalProjectApp
     {
 
         private ComponentModel _selectedComponent;
+
+        private GridViewColumnHeader _listViewSortCol = null;
+        private SortAdorner _listViewSortAdorner = null;
+
+
+
 
         private void uxComponentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -127,5 +134,66 @@ namespace FinalProjectApp
                 LoadContacts();
             }
         }
+
+        private void uxGridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+
+            GridViewColumnHeader column = (sender as GridViewColumnHeader);
+            string sortBy = column.Tag.ToString();
+            if (_listViewSortCol != null)
+            {
+                AdornerLayer.GetAdornerLayer(_listViewSortCol).Remove(_listViewSortAdorner);
+                uxComponentList.Items.SortDescriptions.Clear();
+            }
+
+            ListSortDirection newDir = ListSortDirection.Ascending;
+            if (_listViewSortCol == column && _listViewSortAdorner.Direction == newDir)
+                newDir = ListSortDirection.Descending;
+
+            _listViewSortCol = column;
+            _listViewSortAdorner = new SortAdorner(_listViewSortCol, newDir);
+            AdornerLayer.GetAdornerLayer(_listViewSortCol).Add(_listViewSortAdorner);
+            uxComponentList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
+        }
+
+        public class SortAdorner : Adorner
+        {
+            private static Geometry ascGeometry =
+                Geometry.Parse("M 0 4 L 3.5 0 L 7 4 Z");
+
+            private static Geometry descGeometry =
+                Geometry.Parse("M 0 0 L 3.5 4 L 7 0 Z");
+
+            public System.ComponentModel.ListSortDirection Direction { get; private set; }
+
+            public SortAdorner(UIElement element, ListSortDirection dir)
+                : base(element)
+            {
+                this.Direction = dir;
+            }
+
+            protected override void OnRender(DrawingContext drawingContext)
+            {
+                base.OnRender(drawingContext);
+
+                if (AdornedElement.RenderSize.Width < 20)
+                    return;
+
+                TranslateTransform transform = new TranslateTransform
+                    (
+                        AdornedElement.RenderSize.Width - 15,
+                        (AdornedElement.RenderSize.Height - 5) / 2
+                    );
+                drawingContext.PushTransform(transform);
+
+                Geometry geometry = ascGeometry;
+                if (this.Direction == ListSortDirection.Descending)
+                    geometry = descGeometry;
+                drawingContext.DrawGeometry(Brushes.Black, null, geometry);
+
+                drawingContext.Pop();
+            }
+        }
+
     }
 }
