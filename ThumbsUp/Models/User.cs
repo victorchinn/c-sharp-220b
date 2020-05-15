@@ -12,6 +12,11 @@ namespace ThumbsUp.Models
         private string nameError;
         private string passwordError;
 
+
+        public override string ToString()
+        {
+            return name + ", " + password;
+        }
         public string NameError
         {
             get
