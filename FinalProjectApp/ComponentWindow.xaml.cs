@@ -45,13 +45,13 @@ namespace FinalProjectApp
             // Original code that existed BEFORE binding was introduced 
             //            Component.PartNumber = uxEmail.Text;
 
-            if (uxHome.IsChecked.Value)
+            if (uxAssembly.IsChecked.Value)
             {
-                Component.Type = "Home";
+                Component.Type = "Assembly";
             }
             else
             {
-                Component.Type = "Mobile";
+                Component.Type = "Component";
             }
 
             // Original code that existed BEFORE binding was introduced 
@@ -78,11 +78,11 @@ namespace FinalProjectApp
             {
                 if (Component.Type == "Home")
                 {
-                    uxHome.IsChecked = true;
+                    uxAssembly.IsChecked = true;
                 }
                 else
                 {
-                    uxMobile.IsChecked = true;
+                    uxComponent.IsChecked = true;
                 }
                 uxSubmit.Content = "Update";
             }
@@ -93,6 +93,35 @@ namespace FinalProjectApp
             }
 
             uxGrid.DataContext = Component;
+        }
+
+        private void uxPartNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+            // SEE IF KEYS ARE NUMERIC, A DASH, OR AN UPPERCASE CHARACTER
+
+            if (e.Text == "-")
+            {
+                // DASH IS OK
+                return;
+            }
+
+            char _CharacterKey = e.Text[0];
+
+            if (((Char.IsDigit(_CharacterKey) == true) || ((Char.IsLetter(_CharacterKey) && (Char.IsUpper(_CharacterKey))))))
+            {
+                if (uxPartNumber.Text.Length > 10)
+                {
+                    e.Handled = true;
+                }
+
+                return;
+            }
+            else
+            {
+                // CONSUME THE INVALID KEY
+                e.Handled = true;
+            }
         }
     }
 }

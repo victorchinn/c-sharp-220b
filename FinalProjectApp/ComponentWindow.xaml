@@ -117,9 +117,10 @@
 
         <TextBlock Grid.Column="0"
                    Grid.Row="0"
-                   HorizontalAlignment="Right"
+                   HorizontalAlignment="Right" 
                    Text="PartNumber : " />
         <TextBox x:Name="uxPartNumber"
+                 PreviewTextInput="uxPartNumber_PreviewTextInput"
                  Text="{Binding PartNumber}"
                  Grid.Column="1"
                  Grid.Row="0" />
@@ -150,11 +151,11 @@
         <StackPanel Orientation="Horizontal"
                     Grid.Column="1"
                     Grid.Row="3">
-            <RadioButton x:Name="uxHome"
+            <RadioButton x:Name="uxAssembly"
                          IsChecked="true"
-                         Content="Home" />
-            <RadioButton x:Name="uxMobile"
-                         Content="Mobile" />
+                         Content="Assembly" />
+            <RadioButton x:Name="uxComponent"
+                         Content="Component" />
         </StackPanel>
 
         <TextBlock Grid.Column="0"

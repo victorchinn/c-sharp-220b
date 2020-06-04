@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalProjectApp"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="Company DataBase Final Project"
         Height="450"
         Width="800">
 
@@ -62,32 +62,32 @@
                                                   Content="PartNumber" />
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Name}"
-                                        Width="100">
+                                        Width="150">
                             <GridViewColumnHeader Tag="Name"
                                                   Click="uxGridViewColumnHeader_Click"
                                                   Content="Name" />
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Type}"
-                                        Width="100">
+                                        Width="50">
                             <GridViewColumnHeader Tag="Type"
                                                   Click="uxGridViewColumnHeader_Click"
                                                   Content="Type" />
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding MemberOf}"
-                                        Width="100">
+                                        Width="150">
                             <GridViewColumnHeader Tag="MemberOf"
                                                   Click="uxGridViewColumnHeader_Click"
                                                   Content="MemberOf" />
                         </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Description}"
-                                        Width="100">
+                                        Width="150">
                             <GridViewColumnHeader Tag="Description"
                                                   Click="uxGridViewColumnHeader_Click"
                                                   Content="Description" />
                         </GridViewColumn>
 
                         <GridViewColumn DisplayMemberBinding="{Binding Notes}"
-                                        Width="100">
+                                        Width="150">
                             <GridViewColumnHeader Tag="Notes"
                                                   Click="uxGridViewColumnHeader_Click"
                                                   Content="Notes" />
